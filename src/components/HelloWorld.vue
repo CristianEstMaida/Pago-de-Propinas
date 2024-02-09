@@ -76,6 +76,10 @@ import { Options, Vue } from "vue-class-component";
       return this.montoPersona;
     },
     montoTotal() {
+      if (this.montoTotal < this.totalPagado) {
+        // Mostrar mensaje de error
+        this.montoTotal = this.totalPagado; // Restablecer monto total
+      }
       this.montoRestante = this.montoTotal - this.totalPagado;
       this.montoPersona = this.montoTotal / this.cantidadPersonas;
       return this.montoPersona;
